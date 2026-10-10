@@ -172,19 +172,21 @@ public class PatienceBar : MonoBehaviour
 
     public void SwapDate()
     {
-        movingBarRigidBody.linearVelocityX *= -1;
-        onPhone = !onPhone;
+        if (startedGame == true & paused == false) {
+            movingBarRigidBody.linearVelocityX *= -1;
+            onPhone = !onPhone;
 
-        if (onPhone) {
-            charactersMovePoint = new Vector3(-18, 0, 0);
+            if (onPhone) {
+                charactersMovePoint = new Vector3(-18, 0, 0);
 
-            realDateButtons.SetActive(false);
-            eDateButtons.SetActive(true);
-        } else {
-            charactersMovePoint = new Vector3(0, 0, 0);
+                realDateButtons.SetActive(false);
+                eDateButtons.SetActive(true);
+            } else {
+                charactersMovePoint = new Vector3(0, 0, 0);
 
-            eDateButtons.SetActive(false);
-            realDateButtons.SetActive(true);
+                eDateButtons.SetActive(false);
+                realDateButtons.SetActive(true);
+            }
         }
     }
 }
