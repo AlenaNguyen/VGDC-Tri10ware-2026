@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 36880111}
   - component: {fileID: 36880110}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Answer3 text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -269,6 +269,7 @@ GameObject:
   - component: {fileID: 171351978}
   - component: {fileID: 171351980}
   - component: {fileID: 171351979}
+  - component: {fileID: 171351981}
   m_Layer: 5
   m_Name: Question Panel
   m_TagString: Untagged
@@ -287,13 +288,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 508761788}
   m_Father: {fileID: 1157144782}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 11.435974, y: 246.988}
-  m_SizeDelta: {x: -171.228, y: -570.566}
+  m_SizeDelta: {x: 892.772, y: 87.43402}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &171351979
 MonoBehaviour:
@@ -333,6 +335,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 171351977}
   m_CullTransparentMesh: 1
+--- !u!114 &171351981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171351977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202860254863b6940840a299239a9096, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
+  question: {fileID: 508761789}
+  answerButtons:
+  - {fileID: 1108240022}
+  - {fileID: 1391838456}
+  - {fileID: 1011313985}
+  - {fileID: 2024505433}
 --- !u!1 &508761787
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,11 +383,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1157144782}
+  m_Father: {fileID: 171351978}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -25, y: 246.99}
+  m_AnchoredPosition: {x: -36.436012, y: 0.001953125}
   m_SizeDelta: {x: 772.275, y: 86.049}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &508761789
@@ -984,13 +1004,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 171351978}
-  - {fileID: 508761788}
   - {fileID: 1989687289}
   m_Father: {fileID: 1069477010}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 304.54297, y: -10.490021}
+  m_AnchoredPosition: {x: 304.54297, y: -10.489929}
   m_SizeDelta: {x: -855.755, y: -311.496}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1157144783
@@ -1043,7 +1062,7 @@ GameObject:
   - component: {fileID: 1160234397}
   - component: {fileID: 1160234396}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Answer1 text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1457,7 +1476,7 @@ GameObject:
   - component: {fileID: 1771334712}
   - component: {fileID: 1771334711}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Answer4 text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1675,7 +1694,7 @@ GameObject:
   - component: {fileID: 1995987785}
   - component: {fileID: 1995987784}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Answer2 text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
