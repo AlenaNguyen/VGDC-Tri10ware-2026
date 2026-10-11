@@ -1,14 +1,14 @@
 using System;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
-using Unity.VisualScripting;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
-    String[][] dialogueBank = Dialogue.questionBank;
+    // String[][] dialogueBank = DogDialogue.questionBank;
+    String[][] dialogueBank = DogDialogue.questionBank;
+
     [SerializeField] private TextMeshProUGUI question;
     [SerializeField] private Button[] answerButtons;
     private TextMeshProUGUI[] answerTexts = new TextMeshProUGUI[4];
@@ -72,7 +72,13 @@ public class NewMonoBehaviourScript : MonoBehaviour
             possibleAnswers.RemoveAt(randIndex);
         }
 
-        round++;
+        if (round + 1 == dialogueBank.Length)
+        {
+           // TODO: uhh end the game 
+        } else
+        {
+            round++;
+        }
     }
 
     // called when player clicks a button
