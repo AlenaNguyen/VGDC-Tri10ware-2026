@@ -1,0 +1,136 @@
+using System;
+
+public class Dialogue
+{
+    // Question will always be in index 0
+    // Correct answer will always be in index 1
+    public static string[][] dogQuestionBank = new string[][]
+    {
+        // EASY
+        new string[] {"\"By the way, thanks for taking me out to PawRice Center for our two hour anniversary!\"",
+        "No problem babe. If this date goes well, let's get MARRIED!",
+        "Yeah whatever.",
+        "Dude, chill out.",
+        "I don't really like dogs..."},
+
+        new string[] {"\"Here's hoping you don't spend all your time on your phone instead of your girlfriend!\"",
+        "Baby, I would never betray you like that!",
+        "I love my phone...",
+        "Controlling much? Geez.",
+        "But what about all the online hotties I'm definitely not flirting with?"},
+
+        new string[] {"\"Don't you dare ignore me. I hate distracted little things.\"",
+        "I'll throw you a tennis ball any time you want!",
+        "You're not going to force me to touch grass, right?",
+        "I don't like needy girls...",
+        "Cool ENOUGH?"},
+
+        new string[] {"\"I'm so hungry so I could eat a...\"",
+        "...balanced meal!",
+        "... kibble?",
+        "I'm not hungry. I'm never hungry. I don't eat.",
+        "Are you referencing something?"},
+
+        new string[] {"\"You better get ready for some questions! Can't be dating loser idiots who aren't quick on their feet.\"",
+        "I'm ready babe. Give me ALL of your challenges.",
+        "What, this is a test?!",
+        "I actually identify as a chud...",
+        "GRRRRRRRR BARBARKBARKBARKBARKKKK"},
+
+        // MEDIUM
+        new string[] {"\"I prefer order. Any number that isn't even irritates me, got it?\"",
+        "12",
+        "13",
+        "10.5",
+        "1"},
+
+        new string[] {"\"Which is the outlier?\"",
+        "Light",
+        "Sharp",
+        "Wit",
+        "Bright"},
+
+        new string[] {"\"Never use words than end in -er around me, ok?\"",
+        "I'm no instigator!",
+        "You won't catch me being a whiner!",
+        "Look at this debbie downer!",
+        "Lover, as you command!"},
+
+        // HARD
+        new string[] {"\"How many fries do you want?\"",
+        "80% of 1!",
+        "3",
+        "Four and a half!",
+        "7"},
+
+        new string[] {"\"How many corners are there in a triangle?\"",
+        "More than 2, less than 4",
+        "More than five",
+        "More than 2, less than 1",
+        "3"},
+
+        new string[] {"\"What's the correct spelling for:\"",
+        "perserverance",
+        "perversance",
+        "perceveranse",
+        "pervercanse"}
+    };
+
+    public static string[][] catQuestionBank = new string[][]
+    {
+        // EASY 
+
+        new string[] {"DMing now, are we :33 ?next thing you know is marriage~",
+        "yessssss ^w^ i hope you dont mindddd",
+        "y are u typing like that.",
+        "u sent me a friend request two hours ago chill",
+        "*ignores*"},
+
+        new string[] {"i'm kinda shy hdskdjsfddjsfk-",
+        "i'll get u to come out of ur shell >:D",
+        "dude it's not 2021 anymore stop texting like that",
+        "ur keyboard smash needs work :/",
+        "kys"},
+
+        new string[] {"everyone always ends up ghosting or cheating on me TwT",
+        "i'm not like the others. i don't cheat",
+        "do u think u might be the problem",
+        "it's because you text like a thirteen year old",
+        "yea i prolly will too"},
+
+        new string[] {"what do u think of soft catboys....... <3",
+        "they're the cutest !!!! :333",
+        "i like 'em EVIL",
+        "they're pathetic and not in a cute way",
+        "grown ass man btw"},
+
+        // MEDIUM
+
+        new string[] {"you don't mind if i ask you some questions, right?? hhhghh i just have to make sure you're the right person to protect me",
+        "i'm ur loyal alpha. ask me anything u want",
+        "ummm...",
+        "not another catboy with anxious analyser avoidant abysmal attachment style...",
+        "i'm actually just a little kitten as well uwu"},
+
+        new string[] {"cats have 4 paws :3 i really like multiples of 4, and hate all other numbers!",
+        "8",
+        "9",
+        "7",
+        "6"},
+
+        new string[] {"one of these doesn't fit...",
+        "frog",
+        "fish",
+        "beg",
+        "ask"},
+
+        // HARD
+
+        new string[] {"what time should our next date be? :3",
+        "12:00 AM",
+        "5:00 PM",
+        "9:00 AM",
+        "10:00 PM"}
+                
+    };
+}
