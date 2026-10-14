@@ -56,6 +56,18 @@ public class Dialogue
         "Look at this debbie downer!",
         "Lover, as you command!"},
 
+        new string[] {"\"Which is the outlier?\"",
+        "Halt",
+        "Move",
+        "Reach",
+        "Stretch"},
+
+        new string[] {"\"A pet name is only cute if it isn't food related.\"",
+        "Got it, cuddlebug!",
+        "Sure, honeypie!",
+        "Whatever you say, muffin!",
+        "Okey dokey artichokey!"},
+
         // HARD
         new string[] {"\"How many fries do you want?\"",
         "80% of 1!",
@@ -70,10 +82,16 @@ public class Dialogue
         "3"},
 
         new string[] {"\"What's the correct spelling for:\"",
-        "perserverance",
-        "perversance",
-        "perceveranse",
-        "pervercanse"}
+        "perserverance?",
+        "perversance?",
+        "perceveranse?",
+        "pervercanse?"},
+
+        new string[] {"\"What's the best thing here?\"",
+        "Half of twenty!",
+        "Any even integer",
+        "The number 3!",
+        "Any even number"}
     };
 
     public static string[][] catQuestionBank = new string[][]
@@ -104,13 +122,13 @@ public class Dialogue
         "they're pathetic and not in a cute way",
         "grown ass man btw"},
 
-        // MEDIUM
-
         new string[] {"you don't mind if i ask you some questions, right?? hhhghh i just have to make sure you're the right person to protect me",
         "i'm ur loyal alpha. ask me anything u want",
         "ummm...",
         "not another catboy with anxious analyser avoidant abysmal attachment style...",
         "i'm actually just a little kitten as well uwu"},
+
+        // MEDIUM
 
         new string[] {"cats have 4 paws :3 i really like multiples of 4, and hate all other numbers!",
         "8",
@@ -124,13 +142,49 @@ public class Dialogue
         "beg",
         "ask"},
 
+        new string[] {"an owo means YES, and an -w- means NO, ok???",
+        "owo",
+        "-w-",
+        "huh?",
+        "i'm not using that furry lingo LOL"},
+
+        new string[] {"i HATE words than end in -en, ok?? if u use them ur DNI !!",
+        "okey dokey owo",
+        "ok queen",
+        "what about ramen??",
+        "but what about 67...."},
+
+        new string[] {"i <3 pet names :3 the sweeter the better!!!",
+        "what about sugarmuffin?",
+        "ok honeybear :3",
+        "heehee what about lovebug??",
+        "ok studmuffin :pp"},
+
         // HARD
 
         new string[] {"what time should our next date be? :3",
         "12:00 AM",
         "5:00 PM",
         "9:00 AM",
-        "10:00 PM"}
+        "10:00 PM"},
+
+        new string[] {"how many kisses do i get?? ^w^",
+        "204 !!!",
+        "175 :p",
+        "333 :)",
+        "15! :D"},
+
+        new string[] {"do u love me furever?",
+        "yessss owo",
+        "yessss -w-",
+        "nooooo owo",
+        "not at all -w-"},
+
+        new string[] {"gimme the best response! 4*3 = ??",
+        "twelve",
+        "owo",
+        "a dozen",
+        "-w-"}
                 
     };
 }

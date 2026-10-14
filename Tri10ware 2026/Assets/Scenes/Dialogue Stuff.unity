@@ -353,6 +353,7 @@ MonoBehaviour:
   - {fileID: 1391838456}
   - {fileID: 1011313985}
   - {fileID: 2024505433}
+  isDog: 1
 --- !u!1 &508761787
 GameObject:
   m_ObjectHideFlags: 0

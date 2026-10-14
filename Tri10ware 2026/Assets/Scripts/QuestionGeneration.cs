@@ -8,12 +8,12 @@ public class NewMonoBehaviourScript : MonoBehaviour
 {
     String[][] dialogueBank;
 
-    [SerializeField] private TextMeshProUGUI question;
-    [SerializeField] private Button[] answerButtons;
+    public TextMeshProUGUI question;
+    [SerializeField] Button[] answerButtons;
     private TextMeshProUGUI[] answerTexts = new TextMeshProUGUI[4];
     string correctAnswer;
     int round = 0;
-    [SerializeField] bool isDog;
+    public bool isDog;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
