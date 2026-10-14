@@ -6,18 +6,26 @@ using System.Collections;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
-    // String[][] dialogueBank = DogDialogue.questionBank;
-    String[][] dialogueBank = DogDialogue.questionBank;
+    String[][] dialogueBank;
 
     [SerializeField] private TextMeshProUGUI question;
     [SerializeField] private Button[] answerButtons;
     private TextMeshProUGUI[] answerTexts = new TextMeshProUGUI[4];
     string correctAnswer;
     int round = 0;
+    [SerializeField] bool isDog;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // initialize dialogueBank based on the date
+        if (isDog)
+        {
+            dialogueBank = Dialogue.dogQuestionBank;
+        } else
+        {
+            dialogueBank = Dialogue.catQuestionBank;
+        }
         // initialize the array of answerTexts
         for (int i = 0; i < 4; i++)
         {
@@ -30,7 +38,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
         {
             string buttonTextValue = button.GetComponentInChildren<TMP_Text>().text;
 
-            button.onClick.AddListener(() => OnAnswerSelected(button, buttonTextValue));
+            button.onClick.AddListener(() => OnAnswerSelected(button));
         }
     }
 
@@ -58,7 +66,6 @@ public class NewMonoBehaviourScript : MonoBehaviour
         for (int i = 1; i < 5; i++)
         {
             possibleAnswers.Add(dialogueBank[round][i]);
-            Debug.Log(dialogueBank[round][i]);
         }
 
         // choose a random index from possible answers, put the text into the answerBox text,
@@ -67,11 +74,11 @@ public class NewMonoBehaviourScript : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             int randIndex = rand.Next(0, possibleAnswers.Count);
-            Debug.Log( (string) possibleAnswers[randIndex]);
             answerTexts[i].text = (string) possibleAnswers[randIndex];
             possibleAnswers.RemoveAt(randIndex);
         }
 
+        // if we're at the end of the dialogue choices
         if (round + 1 == dialogueBank.Length)
         {
            // TODO: uhh end the game 
@@ -82,8 +89,9 @@ public class NewMonoBehaviourScript : MonoBehaviour
     }
 
     // called when player clicks a button
-    void OnAnswerSelected(Button answerButton, string answerClicked)
+    void OnAnswerSelected(Button answerButton)
     {
+        string answerClicked = answerButton.GetComponentInChildren<TextMeshProUGUI>().text;
         //change button color to see if correct or not
         if (answerClicked.Equals(correctAnswer))
         {
