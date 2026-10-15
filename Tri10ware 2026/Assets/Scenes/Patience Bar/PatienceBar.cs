@@ -23,16 +23,23 @@ public class PatienceBar : MonoBehaviour
     private Rigidbody2D movingBarRigidBody;
     private Vector3 startPosMovingBar;
 
+    private bool numBarsChanged;
     private int numBarsLostA;
     private int numBarsLostB;
 
-    public GameObject patienceBarA1;
-    public GameObject patienceBarA2;
-    public GameObject patienceBarA3;
-    public GameObject patienceBarB1;
-    public GameObject patienceBarB2;
-    public GameObject patienceBarB3;
+    public GameObject patienceBarSprite;
+    private SpriteRenderer patienceBarSpriteRenderer;
+    public Sprite patienceBar00;
+    public Sprite patienceBar10;
+    public Sprite patienceBar20;
+    public Sprite patienceBar01;
+    public Sprite patienceBar02;
+    public Sprite patienceBar11;
+    public Sprite patienceBar12;
+    public Sprite patienceBar21;
+    public Sprite patienceBar22;
     public float patienceBarBlockSize;
+    public float patienceBarSize;
 
     public GameObject buttonsLayer;
     private RectTransform buttonsLayerTransform;
@@ -63,19 +70,16 @@ public class PatienceBar : MonoBehaviour
         cameraShakeCounter = 0;
         cameraTransform.localRotation = Quaternion.Euler(0,0,0);
 
+        numBarsChanged = false;
         numBarsLostA = 0;
         numBarsLostB = 0;
+
+        patienceBarSpriteRenderer = patienceBarSprite.GetComponent<SpriteRenderer>();
+        patienceBarSpriteRenderer.sprite = patienceBar00;
 
         movingBarRigidBody = movingBar.GetComponent<Rigidbody2D>();
         movingBarRigidBody.linearVelocityX = 0;
         startPosMovingBar = movingBar.transform.position;
-
-        patienceBarA1.SetActive(true);
-        patienceBarA2.SetActive(true);
-        patienceBarA3.SetActive(true);
-        patienceBarB1.SetActive(true);
-        patienceBarB2.SetActive(true);
-        patienceBarB3.SetActive(true);
 
         buttonsLayerTransform = buttonsLayer.GetComponent<RectTransform>();
         buttonsLayerTransform.localRotation = Quaternion.Euler(0,0,0);
@@ -115,37 +119,60 @@ public class PatienceBar : MonoBehaviour
 
         }
 
-        if (movingBar.transform.position.x < -3.5 - (numBarsLostA * -patienceBarBlockSize)) {
+        if (movingBar.transform.position.x < -patienceBarSize - (numBarsLostA * -patienceBarBlockSize)) {
+            numBarsChanged = true;
             numBarsLostA += 1;
             if (numBarsLostA == 1) {
-                patienceBarA1.SetActive(false);
                 movingBar.transform.position = startPosMovingBar;
             } else if (numBarsLostA == 2) {
-                patienceBarA2.SetActive(false);
                 movingBar.transform.position = startPosMovingBar;
             } else if (numBarsLostA == 3) {
-                patienceBarA3.SetActive(false);
                 movingBar.transform.position = startPosMovingBar;
 
                 RestartButton();
             }
         }
 
-        if (movingBar.transform.position.x > 3.5 - (numBarsLostB * patienceBarBlockSize)) {
+        if (movingBar.transform.position.x > patienceBarSize - (numBarsLostB * patienceBarBlockSize)) {
+            numBarsChanged = true;
             numBarsLostB += 1;
             if (numBarsLostB == 1) {
-                patienceBarB1.SetActive(false);
                 movingBar.transform.position = startPosMovingBar;
             } else if (numBarsLostB == 2) {
-                patienceBarB2.SetActive(false);
                 movingBar.transform.position = startPosMovingBar;
             } else if (numBarsLostB == 3) {
-                patienceBarB3.SetActive(false);
                 movingBar.transform.position = startPosMovingBar;
 
                 RestartButton();
             }
-            
+        }
+
+        if (numBarsChanged) {
+            if (numBarsLostA == 0) {
+                if (numBarsLostB == 0) {
+                    patienceBarSpriteRenderer.sprite = patienceBar00;
+                } else if (numBarsLostB == 1) {
+                    patienceBarSpriteRenderer.sprite = patienceBar01;
+                } else if (numBarsLostB == 2) {
+                    patienceBarSpriteRenderer.sprite = patienceBar02;
+                }
+            } else if (numBarsLostA == 1) {
+                if (numBarsLostB == 0) {
+                    patienceBarSpriteRenderer.sprite = patienceBar10;
+                } else if (numBarsLostB == 1) {
+                    patienceBarSpriteRenderer.sprite = patienceBar11;
+                } else if (numBarsLostB == 2) {
+                    patienceBarSpriteRenderer.sprite = patienceBar12;
+                }
+            } else if (numBarsLostA == 2) {
+                if (numBarsLostB == 0) {
+                    patienceBarSpriteRenderer.sprite = patienceBar20;
+                } else if (numBarsLostB == 1) {
+                    patienceBarSpriteRenderer.sprite = patienceBar21;
+                } else if (numBarsLostB == 2) {
+                    patienceBarSpriteRenderer.sprite = patienceBar22;
+                }
+            }
         }
     }
 
@@ -176,15 +203,11 @@ public class PatienceBar : MonoBehaviour
             movingBar.transform.position = startPosMovingBar;
             movingBarRigidBody.linearVelocityX = 0;
 
+            numBarsChanged = false;
             numBarsLostA = 0;
             numBarsLostB = 0;
 
-            patienceBarA1.SetActive(true);
-            patienceBarA2.SetActive(true);
-            patienceBarA3.SetActive(true);
-            patienceBarB1.SetActive(true);
-            patienceBarB2.SetActive(true);
-            patienceBarB3.SetActive(true);
+            patienceBarSpriteRenderer.sprite = patienceBar00;
 
             charactersLayer.transform.position = new Vector3(0, 0, 0);
             charactersMovePoint = new Vector3(0, 0, 0);
