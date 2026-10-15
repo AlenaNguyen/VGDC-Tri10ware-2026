@@ -6,6 +6,18 @@ public class PatienceBar : MonoBehaviour
 
     public float barMoveSpeed;
     public float barMoveSpeedMultiplier;
+    private float originalBarMoveSpeed;
+
+    public GameObject cam;
+    private float cameraShakeCounter;
+    public float cameraShakeDuration;
+    public float cameraShakeMultiplier;
+    private bool cameraShaking;
+    public float cameraShakeSize;
+    private Transform cameraTransform;
+    private float originalCameraShakeDuration;
+    private float originalCameraShakeSize;
+    private float shakeAngle;
 
     public GameObject movingBar;
     private Rigidbody2D movingBarRigidBody;
@@ -23,10 +35,11 @@ public class PatienceBar : MonoBehaviour
     public float patienceBarBlockSize;
 
     public GameObject buttonsLayer;
+    private RectTransform buttonsLayerTransform;
     public GameObject charactersLayer;
     private Vector3 charactersMovePoint;
+    private float originalCharactersTransitionSpeed;
     public float charactersTransitionSpeed;
-    private float currCharactersTransitionSpeed;
     public float charactersTransitionSpeedMultiplier;
     public GameObject eDateButtons;
     public GameObject realDateButtons;
@@ -34,11 +47,22 @@ public class PatienceBar : MonoBehaviour
     private bool onPhone;
     private bool paused;
     private bool startedGame;
-    private bool swapping;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        originalBarMoveSpeed = barMoveSpeed;
+
+        cameraShakeCounter = 0;
+        cameraShaking = false;
+        cameraTransform = cam.transform;
+        originalCameraShakeSize = cameraShakeSize;
+        originalCameraShakeDuration = cameraShakeDuration;
+        shakeAngle = 0;
+        cameraShaking = false;
+        cameraShakeCounter = 0;
+        cameraTransform.localRotation = Quaternion.Euler(0,0,0);
+
         numBarsLostA = 0;
         numBarsLostB = 0;
 
@@ -53,22 +77,42 @@ public class PatienceBar : MonoBehaviour
         patienceBarB2.SetActive(true);
         patienceBarB3.SetActive(true);
 
+        buttonsLayerTransform = buttonsLayer.GetComponent<RectTransform>();
+        buttonsLayerTransform.localRotation = Quaternion.Euler(0,0,0);
         charactersLayer.transform.position = new Vector3(0, 0, 0);
         charactersMovePoint = new Vector3(0, 0, 0);
-        currCharactersTransitionSpeed = charactersTransitionSpeed;
+        originalCharactersTransitionSpeed = charactersTransitionSpeed;
         realDateButtons.SetActive(true);
         eDateButtons.SetActive(false);
 
         onPhone = false;
         startedGame = false;
         paused = false;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (charactersLayer.transform.position != charactersMovePoint) {
-            charactersLayer.transform.position = Vector3.MoveTowards(charactersLayer.transform.position, charactersMovePoint, charactersTransitionSpeed * Time.deltaTime);
+        if (Vector3.Distance(charactersLayer.transform.position, charactersMovePoint) > 0.01f) {
+            charactersLayer.transform.localPosition = Vector3.MoveTowards(charactersLayer.transform.localPosition, charactersMovePoint, charactersTransitionSpeed * Time.deltaTime);
+        }
+
+        if (cameraShaking) {
+            cameraShakeCounter += Time.deltaTime;
+
+            shakeAngle = Random.Range(-cameraShakeSize, cameraShakeSize);
+
+            cameraTransform.rotation = Quaternion.Euler(0,0,shakeAngle);
+            buttonsLayerTransform.localRotation = Quaternion.Euler(0,0,-shakeAngle);
+
+            if (cameraShakeCounter > cameraShakeDuration){
+                cameraShaking = false;
+                cameraShakeCounter = 0;
+                cameraTransform.localRotation = Quaternion.Euler(0,0,0);
+                buttonsLayerTransform.localRotation = Quaternion.Euler(0,0,0);
+            }
+
         }
 
         if (movingBar.transform.position.x < -3.5 - (numBarsLostA * -patienceBarBlockSize)) {
@@ -116,6 +160,19 @@ public class PatienceBar : MonoBehaviour
     public void RestartButton()
     {
         if (startedGame == true) {
+            barMoveSpeed = originalBarMoveSpeed;
+
+            cameraShakeCounter = 0;
+            cameraShaking = false;
+            cameraTransform = cam.transform;
+            originalCameraShakeSize = cameraShakeSize;
+            originalCameraShakeDuration = cameraShakeDuration;
+            shakeAngle = 0;
+            cameraShaking = false;
+            cameraShakeCounter = 0;
+            cameraTransform.localRotation = Quaternion.Euler(0,0,0);
+            buttonsLayerTransform.localRotation = Quaternion.Euler(0,0,0);
+
             movingBar.transform.position = startPosMovingBar;
             movingBarRigidBody.linearVelocityX = 0;
 
@@ -131,10 +188,12 @@ public class PatienceBar : MonoBehaviour
 
             charactersLayer.transform.position = new Vector3(0, 0, 0);
             charactersMovePoint = new Vector3(0, 0, 0);
-            currCharactersTransitionSpeed = charactersTransitionSpeed;
+            charactersTransitionSpeed = originalCharactersTransitionSpeed;
             realDateButtons.SetActive(true);
             eDateButtons.SetActive(false);
 
+
+            cameraShaking = false;
             onPhone = false;
             startedGame = false;
             paused = false;
@@ -158,7 +217,7 @@ public class PatienceBar : MonoBehaviour
     {
         if (startedGame == true & paused == false) {
             movingBarRigidBody.linearVelocityX *= barMoveSpeedMultiplier;
-            currCharactersTransitionSpeed *= charactersTransitionSpeedMultiplier;
+            charactersTransitionSpeed *= charactersTransitionSpeedMultiplier;
         }
     }
 
@@ -166,7 +225,13 @@ public class PatienceBar : MonoBehaviour
     {
         if (startedGame == true & paused == false) {
             movingBarRigidBody.linearVelocityX *= barMoveSpeedMultiplier;
-            currCharactersTransitionSpeed *= charactersTransitionSpeedMultiplier;
+            charactersTransitionSpeed *= charactersTransitionSpeedMultiplier;
+
+            if (!cameraShaking) {
+                cameraShaking = true;
+            } else {
+                cameraShakeCounter = 0;
+            }
         }
     }
 

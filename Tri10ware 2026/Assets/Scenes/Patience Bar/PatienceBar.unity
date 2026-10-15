@@ -1208,6 +1208,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   barMoveSpeed: 1
   barMoveSpeedMultiplier: 1.1
+  cam: {fileID: 2146706569}
+  cameraShakeDuration: 0.5
+  cameraShakeMultiplier: 1.1
+  cameraShakeSize: 20
   movingBar: {fileID: 2055299023}
   patienceBarA1: {fileID: 297616903}
   patienceBarA2: {fileID: 518449710}
@@ -1219,7 +1223,7 @@ MonoBehaviour:
   buttonsLayer: {fileID: 669539051}
   charactersLayer: {fileID: 1532711483}
   charactersTransitionSpeed: 50
-  charactersTransitionSpeedMultiplier: 1.01
+  charactersTransitionSpeedMultiplier: 1.1
   eDateButtons: {fileID: 1036721679}
   realDateButtons: {fileID: 2138172441}
 --- !u!1 &399487160
