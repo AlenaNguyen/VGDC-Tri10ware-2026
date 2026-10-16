@@ -14,11 +14,13 @@ public class NewMonoBehaviourScript : MonoBehaviour
     string correctAnswer;
     int round = 0;
     public bool isDog;
-    PatienceBar patienceBar = new PatienceBar();
+    PatienceBar patienceBar;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        patienceBar = GameObject.FindWithTag("PatienceBar").GetComponent<PatienceBar>();
+
         // initialize dialogueBank based on the date
         if (isDog)
         {
