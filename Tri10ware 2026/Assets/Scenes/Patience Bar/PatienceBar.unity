@@ -956,13 +956,14 @@ MonoBehaviour:
   charactersLayer: {fileID: 1532711483}
   charactersTransitionSpeed: 50
   charactersTransitionSpeedMultiplier: 1.1
-  eDateButtons: {fileID: 1036721679}
-  realDateButtons: {fileID: 2138172441}
   maxSwapsOffPhone: 5
   maxSwapsToPhone: 5
   swapCooldownDuration: 2
   eDate: {fileID: 1036721679}
   realDate: {fileID: 2138172441}
+  questionDelayMultiplier: 0.90909094
+  paused: 0
+  startedGame: 0
 --- !u!1 &411379532
 GameObject:
   m_ObjectHideFlags: 0
@@ -2392,6 +2393,7 @@ MonoBehaviour:
   - {fileID: 1912202911}
   round: 0
   isDog: 0
+  questionDelay: 1
 --- !u!1 &1081884630
 GameObject:
   m_ObjectHideFlags: 0
@@ -4814,6 +4816,7 @@ MonoBehaviour:
   - {fileID: 543925326}
   round: 0
   isDog: 1
+  questionDelay: 1
 --- !u!1 &2146706569
 GameObject:
   m_ObjectHideFlags: 0

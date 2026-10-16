@@ -15,6 +15,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public int round = 0;
     public bool isDog;
     PatienceBar patienceBar;
+    public float questionDelay = 1;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -105,8 +106,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
                 patienceBar.WrongAnswer();
             }
 
-            // change to a new question after 2 seconds
-            Invoke(nameof(newQuestion), 2f);
+            // change to a new question after some time
+            Invoke(nameof(newQuestion), questionDelay);
         }
     }
 

@@ -11,12 +11,9 @@ public class PatienceBar : MonoBehaviour
     public GameObject cam;
     private float cameraShakeCounter;
     public float cameraShakeDuration;
-    public float cameraShakeMultiplier;
     private bool cameraShaking;
     public float cameraShakeSize;
     private Transform cameraTransform;
-    private float originalCameraShakeDuration;
-    private float originalCameraShakeSize;
     private float shakeAngle;
 
     public GameObject movingBar;
@@ -48,8 +45,6 @@ public class PatienceBar : MonoBehaviour
     private float originalCharactersTransitionSpeed;
     public float charactersTransitionSpeed;
     public float charactersTransitionSpeedMultiplier;
-    public GameObject eDateButtons;
-    public GameObject realDateButtons;
 
     public int maxSwapsOffPhone;
     public int maxSwapsToPhone;
@@ -60,7 +55,10 @@ public class PatienceBar : MonoBehaviour
     private int swapsToPhoneCounter;
 
     public GameObject eDate;
+    private NewMonoBehaviourScript eDateQuestions;
     public GameObject realDate;
+    private NewMonoBehaviourScript realDateQuestions;
+    public float questionDelayMultiplier;
 
     private bool onPhone;
     public bool paused;
@@ -74,8 +72,6 @@ public class PatienceBar : MonoBehaviour
         cameraShakeCounter = 0;
         cameraShaking = false;
         cameraTransform = cam.transform;
-        originalCameraShakeSize = cameraShakeSize;
-        originalCameraShakeDuration = cameraShakeDuration;
         shakeAngle = 0;
         cameraShaking = false;
         cameraShakeCounter = 0;
@@ -97,13 +93,16 @@ public class PatienceBar : MonoBehaviour
         charactersLayer.transform.position = new Vector3(0, 0, 0);
         charactersMovePoint = new Vector3(0, 0, 0);
         originalCharactersTransitionSpeed = charactersTransitionSpeed;
-        realDateButtons.SetActive(true);
-        eDateButtons.SetActive(false);
+        realDate.SetActive(true);
+        eDate.SetActive(false);
 
         swapCooldownCounter = 0;
         swapped = false;
         swapsOffPhoneCounter = 0;
         swapsToPhoneCounter = 0;
+
+        eDateQuestions = eDate.GetComponent<NewMonoBehaviourScript>();
+        realDateQuestions = realDate.GetComponent<NewMonoBehaviourScript>();
 
         onPhone = false;
         startedGame = false;
@@ -237,8 +236,6 @@ public class PatienceBar : MonoBehaviour
             cameraShakeCounter = 0;
             cameraShaking = false;
             cameraTransform = cam.transform;
-            originalCameraShakeSize = cameraShakeSize;
-            originalCameraShakeDuration = cameraShakeDuration;
             shakeAngle = 0;
             cameraShaking = false;
             cameraShakeCounter = 0;
@@ -257,16 +254,15 @@ public class PatienceBar : MonoBehaviour
             charactersLayer.transform.position = new Vector3(0, 0, 0);
             charactersMovePoint = new Vector3(0, 0, 0);
             charactersTransitionSpeed = originalCharactersTransitionSpeed;
-            realDateButtons.SetActive(true);
-            eDateButtons.SetActive(false);
+            realDate.SetActive(true);
+            eDate.SetActive(false);
 
             swapped = false;
             swapsOffPhoneCounter = 0;
             swapsToPhoneCounter = 0;
 
-            realDate.GetComponent<NewMonoBehaviourScript>().round = 0;
-            eDate.GetComponent<NewMonoBehaviourScript>().round = 0;
-            realDate.GetComponent<NewMonoBehaviourScript>().newQuestion();
+            realDateQuestions.round = 0;
+            eDateQuestions.round = 0;
 
             cameraShaking = false;
             onPhone = false;
@@ -293,6 +289,8 @@ public class PatienceBar : MonoBehaviour
         if (startedGame == true & paused == false) {
             movingBarRigidBody.linearVelocityX *= barMoveSpeedMultiplier;
             charactersTransitionSpeed *= charactersTransitionSpeedMultiplier;
+            eDateQuestions.questionDelay *= questionDelayMultiplier;
+            realDateQuestions.questionDelay *= questionDelayMultiplier;
 
             swapped = false;
 
@@ -309,15 +307,25 @@ public class PatienceBar : MonoBehaviour
         if (startedGame == true & paused == false) {
             movingBarRigidBody.linearVelocityX *= barMoveSpeedMultiplier;
             charactersTransitionSpeed *= charactersTransitionSpeedMultiplier;
+            eDateQuestions.questionDelay *= questionDelayMultiplier;
+            realDateQuestions.questionDelay *= questionDelayMultiplier;
 
             swapped = false;
 
             if (!onPhone) {
                 numBarsChanged = true;
                 numBarsLostA += 1;
+
+                if (numBarsLostA >= 3) {
+                    RestartButton();
+                }
             } else if (onPhone) {
                 numBarsChanged = true;
                 numBarsLostB += 1;
+
+                if (numBarsLostB >= 3) {
+                    RestartButton();
+                }
             }
 
             if (!cameraShaking) {
@@ -336,16 +344,16 @@ public class PatienceBar : MonoBehaviour
             if (!onPhone) {
                 charactersMovePoint = new Vector3(-18, 0, 0);
 
-                realDateButtons.SetActive(false);
-                eDateButtons.SetActive(true);
+                realDate.SetActive(false);
+                eDate.SetActive(true);
 
                 swapped = true;
                 swapsOffPhoneCounter += 1;
             } else {
                 charactersMovePoint = new Vector3(0, 0, 0);
 
-                eDateButtons.SetActive(false);
-                realDateButtons.SetActive(true);
+                eDate.SetActive(false);
+                realDate.SetActive(true);
 
                 swapped = true;
                 swapsToPhoneCounter += 1;
