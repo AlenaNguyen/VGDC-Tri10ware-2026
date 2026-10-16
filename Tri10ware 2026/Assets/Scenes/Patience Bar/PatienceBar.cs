@@ -286,7 +286,7 @@ public class PatienceBar : MonoBehaviour
 
     public void RightAnswer()
     {
-        if (startedGame == true & paused == false) {
+        if (startedGame == true & paused == false & cameraShaking == false) {
             movingBarRigidBody.linearVelocityX *= barMoveSpeedMultiplier;
             charactersTransitionSpeed *= charactersTransitionSpeedMultiplier;
             eDateQuestions.questionDelay *= questionDelayMultiplier;
@@ -304,7 +304,7 @@ public class PatienceBar : MonoBehaviour
 
     public void WrongAnswer()
     {
-        if (startedGame == true & paused == false) {
+        if (startedGame == true & paused == false & cameraShaking == false) {
             movingBarRigidBody.linearVelocityX *= barMoveSpeedMultiplier;
             charactersTransitionSpeed *= charactersTransitionSpeedMultiplier;
             eDateQuestions.questionDelay *= questionDelayMultiplier;
@@ -338,7 +338,7 @@ public class PatienceBar : MonoBehaviour
 
     public void SwapDate()
     {
-        if (startedGame == true & paused == false & swapped == false) {
+        if (startedGame == true & paused == false & swapped == false & cameraShaking == false) {
             movingBarRigidBody.linearVelocityX *= -1;
 
             if (!onPhone) {
