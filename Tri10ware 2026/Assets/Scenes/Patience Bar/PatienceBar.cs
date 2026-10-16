@@ -59,9 +59,12 @@ public class PatienceBar : MonoBehaviour
     private int swapsOffPhoneCounter;
     private int swapsToPhoneCounter;
 
+    public GameObject eDate;
+    public GameObject realDate;
+
     private bool onPhone;
-    private bool paused;
-    private bool startedGame;
+    public bool paused;
+    public bool startedGame;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -194,14 +197,20 @@ public class PatienceBar : MonoBehaviour
         if (swapped) {
             if (swapsToPhoneCounter >= maxSwapsToPhone) {
                 numBarsChanged = true;
-                numBarsLostB += 1;
-                swapsOffPhoneCounter = 0;
+                numBarsLostA += 1;
+                swapsToPhoneCounter = 0;
             }
 
             if (swapsOffPhoneCounter >= maxSwapsOffPhone) {
                 numBarsChanged = true;
                 numBarsLostB += 1;
                 swapsOffPhoneCounter = 0;
+
+                if (numBarsLostA == 3 | numBarsLostB == 3) {
+                    movingBar.transform.position = startPosMovingBar;
+
+                    RestartButton();
+                }
             }
 
             swapCooldownCounter += Time.deltaTime;
@@ -254,6 +263,10 @@ public class PatienceBar : MonoBehaviour
             swapped = false;
             swapsOffPhoneCounter = 0;
             swapsToPhoneCounter = 0;
+
+            realDate.GetComponent<NewMonoBehaviourScript>().round = 0;
+            eDate.GetComponent<NewMonoBehaviourScript>().round = 0;
+            realDate.GetComponent<NewMonoBehaviourScript>().newQuestion();
 
             cameraShaking = false;
             onPhone = false;

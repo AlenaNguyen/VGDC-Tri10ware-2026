@@ -12,7 +12,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     [SerializeField] Button[] answerButtons;
     private Text[] answerTexts = new Text[4];
     string correctAnswer;
-    int round = 0;
+    public int round = 0;
     public bool isDog;
     PatienceBar patienceBar;
 
@@ -92,20 +92,22 @@ public class NewMonoBehaviourScript : MonoBehaviour
     // called when player clicks a button
     public void OnAnswerSelected(Button answerButton)
     {
-        string answerClicked = answerButton.GetComponentInChildren<Text>().text;
-        //change button color to see if correct or not
-        if (answerClicked.Equals(correctAnswer))
-        {
-            answerButton.GetComponent<Image>().color = Color.green;
-            patienceBar.RightAnswer();
-        } else
-        {
-            answerButton.GetComponent<Image>().color = Color.red;
-            patienceBar.WrongAnswer();
-        }
+        if (patienceBar.startedGame == true & patienceBar.paused == false) {
+            string answerClicked = answerButton.GetComponentInChildren<Text>().text;
+            //change button color to see if correct or not
+            if (answerClicked.Equals(correctAnswer))
+            {
+                answerButton.GetComponent<Image>().color = Color.green;
+                patienceBar.RightAnswer();
+            } else
+            {
+                answerButton.GetComponent<Image>().color = Color.red;
+                patienceBar.WrongAnswer();
+            }
 
-        // change to a new question after 2 seconds
-        Invoke(nameof(newQuestion), 2f);
+            // change to a new question after 2 seconds
+            Invoke(nameof(newQuestion), 2f);
+        }
     }
 
     // remove listeners cuz gemini says it'll avoid memory leaks
