@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using NUnit.Framework.Internal;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
@@ -33,18 +34,16 @@ public class NewMonoBehaviourScript : MonoBehaviour
         }
         newQuestion();
 
+    }
+
+    void OnEnable()
+    {
         // add a listener to each button and get its text when it's clicked
         foreach (Button button in answerButtons)
         {
-            string buttonTextValue = button.GetComponentInChildren<Text>().text;
-
+            button.onClick.RemoveAllListeners();
             button.onClick.AddListener(() => OnAnswerSelected(button));
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         
     }
 
@@ -89,7 +88,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     }
 
     // called when player clicks a button
-    void OnAnswerSelected(Button answerButton)
+    public void OnAnswerSelected(Button answerButton)
     {
         string answerClicked = answerButton.GetComponentInChildren<Text>().text;
         //change button color to see if correct or not
@@ -112,8 +111,6 @@ public class NewMonoBehaviourScript : MonoBehaviour
     {
         foreach (Button button in answerButtons)
         {
-            string buttonTextValue = button.GetComponentInChildren<Text>().text;
-
             button.onClick.RemoveAllListeners();
         }
     }
