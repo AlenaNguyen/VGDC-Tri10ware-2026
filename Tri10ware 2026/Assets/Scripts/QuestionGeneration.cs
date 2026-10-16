@@ -1,19 +1,19 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 using System.Collections;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
     String[][] dialogueBank;
 
-    public TextMeshProUGUI question;
+    public Text question;
     [SerializeField] Button[] answerButtons;
-    private TextMeshProUGUI[] answerTexts = new TextMeshProUGUI[4];
+    private Text[] answerTexts = new Text[4];
     string correctAnswer;
     int round = 0;
     public bool isDog;
+    PatienceBar patienceBar = new PatienceBar();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -29,14 +29,14 @@ public class NewMonoBehaviourScript : MonoBehaviour
         // initialize the array of answerTexts
         for (int i = 0; i < 4; i++)
         {
-            answerTexts[i] = answerButtons[i].GetComponentInChildren<TextMeshProUGUI>();
+            answerTexts[i] = answerButtons[i].GetComponentInChildren<Text>();
         }
         newQuestion();
 
         // add a listener to each button and get its text when it's clicked
         foreach (Button button in answerButtons)
         {
-            string buttonTextValue = button.GetComponentInChildren<TMP_Text>().text;
+            string buttonTextValue = button.GetComponentInChildren<Text>().text;
 
             button.onClick.AddListener(() => OnAnswerSelected(button));
         }
@@ -91,14 +91,16 @@ public class NewMonoBehaviourScript : MonoBehaviour
     // called when player clicks a button
     void OnAnswerSelected(Button answerButton)
     {
-        string answerClicked = answerButton.GetComponentInChildren<TextMeshProUGUI>().text;
+        string answerClicked = answerButton.GetComponentInChildren<Text>().text;
         //change button color to see if correct or not
         if (answerClicked.Equals(correctAnswer))
         {
             answerButton.GetComponent<Image>().color = Color.green;
+            patienceBar.RightAnswer();
         } else
         {
             answerButton.GetComponent<Image>().color = Color.red;
+            patienceBar.WrongAnswer();
         }
 
         // change to a new question after 2 seconds
@@ -110,7 +112,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     {
         foreach (Button button in answerButtons)
         {
-            string buttonTextValue = button.GetComponentInChildren<TMP_Text>().text;
+            string buttonTextValue = button.GetComponentInChildren<Text>().text;
 
             button.onClick.RemoveAllListeners();
         }

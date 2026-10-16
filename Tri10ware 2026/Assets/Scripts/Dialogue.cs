@@ -70,7 +70,7 @@ public class Dialogue
 
         // HARD
         new string[] {"\"How many fries do you want?\"",
-        "80% of 1!",
+        "80% of 10!",
         "3",
         "Four and a half!",
         "7"},
@@ -91,7 +91,45 @@ public class Dialogue
         "Half of twenty!",
         "Any even integer",
         "The number 3!",
-        "Any even number"}
+        "Any even number"},
+
+        new string[] {"\"Tell me something sweet.\"",
+        "You're the best 2nd girlfriend in the world!",
+        "You're the apple of my eye!",
+        "You're even prettier by the minute!",
+        "You're the best 1st girlfriend in the world!"},
+
+        // EXTRA HARD
+
+        new string[] {"\"What's the best thing to eat here?\"",
+        "H-O-T-D-O-G",
+        "B-U-R-G-E-R",
+        "F-R-I-E-S",
+        "P-I-Z-Z-A"},
+        
+        new string[] {"\"How do you really feel about this relationship?\"",
+        "Love, we're such a good pair!",
+        "Darling, I love you x3!",
+        "Cupcake, you keep things in such good order!",
+        "Angel, I'll love you forever!"},
+
+        new string[] {"\"Quickly. What's 5+2-3?\"",
+        "The number between 6 and 8!",
+        "The number between 4 and 6!",
+        "The number 7!",
+        "The number 8!"},
+
+        new string[] {"\"Wow, we've been dating a while.\"",
+        "It's been the best two hours of my life!",
+        "You might be my one true soulmate!",
+        "We're going to be together forever!",
+        "Sugarmuffin, I adore you!"},
+
+        new string[] {"\"Which doesn't fit?\"",
+        "Skim",
+        "Bar",
+        "Line",
+        "Plot"}
     };
 
     public static string[][] catQuestionBank = new string[][]
@@ -184,7 +222,45 @@ public class Dialogue
         "twelve",
         "owo",
         "a dozen",
-        "-w-"}
+        "-w-"},
+
+        new string[] {"yes yes no yes",
+        "owo owo -w- owo",
+        "-w- owo -wo uwu",
+        "-w- -w- owo -w-",
+        "uwu owo -w- owo"},
+
+        // EXTRA HARD
+
+        new string[] {"yes no yes yeno nyes",
+        "owo -w- owo ow- -wo",
+        "-w- owo owo owo -w-",
+        "-w- owo owo owo -w-",
+        "owo -w- -wo owo ow-"},
+
+        new string[] {"2+5+4-1 = ??",
+        "10",
+        "9",
+        "11",
+        "3"},
+
+        new string[] {"how do u spell ...",
+        "worcestershire?",
+        "worcesterchire?",
+        "worcestrshire?",
+        "worcesterrshire?"},
+
+        new string[] {"*sigh* ive felt kinda ignored by u...",
+        "sweetiepie, ur my love 4rever",
+        "preciousmuffin, i care about u 2 much",
+        "honeybun, ur the 1 for me",
+        "snookums, i like the number 7"},
+
+        new string[] {"one of these doesnt fit!!!",
+        "beckon",
+        "judge",
+        "assess",
+        "count"}
                 
     };
 }
