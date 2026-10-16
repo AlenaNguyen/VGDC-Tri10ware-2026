@@ -958,6 +958,9 @@ MonoBehaviour:
   charactersTransitionSpeedMultiplier: 1.1
   eDateButtons: {fileID: 1036721679}
   realDateButtons: {fileID: 2138172441}
+  maxSwapsOffPhone: 5
+  maxSwapsToPhone: 5
+  swapCooldownDuration: 2
 --- !u!1 &411379532
 GameObject:
   m_ObjectHideFlags: 0

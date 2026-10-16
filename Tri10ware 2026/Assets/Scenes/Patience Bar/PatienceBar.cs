@@ -51,6 +51,14 @@ public class PatienceBar : MonoBehaviour
     public GameObject eDateButtons;
     public GameObject realDateButtons;
 
+    public int maxSwapsOffPhone;
+    public int maxSwapsToPhone;
+    private float swapCooldownCounter;
+    private bool swapped;
+    public float swapCooldownDuration;
+    private int swapsOffPhoneCounter;
+    private int swapsToPhoneCounter;
+
     private bool onPhone;
     private bool paused;
     private bool startedGame;
@@ -88,6 +96,11 @@ public class PatienceBar : MonoBehaviour
         originalCharactersTransitionSpeed = charactersTransitionSpeed;
         realDateButtons.SetActive(true);
         eDateButtons.SetActive(false);
+
+        swapCooldownCounter = 0;
+        swapped = false;
+        swapsOffPhoneCounter = 0;
+        swapsToPhoneCounter = 0;
 
         onPhone = false;
         startedGame = false;
@@ -173,6 +186,29 @@ public class PatienceBar : MonoBehaviour
                     patienceBarSpriteRenderer.sprite = patienceBar22;
                 }
             }
+            
+            movingBar.transform.position = startPosMovingBar;
+            numBarsChanged = false;
+        }
+
+        if (swapped) {
+            if (swapsToPhoneCounter >= maxSwapsToPhone) {
+                numBarsChanged = true;
+                numBarsLostB += 1;
+                swapsOffPhoneCounter = 0;
+            }
+
+            if (swapsOffPhoneCounter >= maxSwapsOffPhone) {
+                numBarsChanged = true;
+                numBarsLostB += 1;
+                swapsOffPhoneCounter = 0;
+            }
+
+            swapCooldownCounter += Time.deltaTime;
+
+            if (swapCooldownCounter >= swapCooldownDuration) {
+                swapped = false;
+            }
         }
     }
 
@@ -215,6 +251,9 @@ public class PatienceBar : MonoBehaviour
             realDateButtons.SetActive(true);
             eDateButtons.SetActive(false);
 
+            swapped = false;
+            swapsOffPhoneCounter = 0;
+            swapsToPhoneCounter = 0;
 
             cameraShaking = false;
             onPhone = false;
@@ -241,6 +280,14 @@ public class PatienceBar : MonoBehaviour
         if (startedGame == true & paused == false) {
             movingBarRigidBody.linearVelocityX *= barMoveSpeedMultiplier;
             charactersTransitionSpeed *= charactersTransitionSpeedMultiplier;
+
+            swapped = false;
+
+            if (onPhone) {
+                swapsToPhoneCounter -= 1;
+            } else {
+                swapsOffPhoneCounter -= 1;
+            }
         }
     }
 
@@ -249,6 +296,16 @@ public class PatienceBar : MonoBehaviour
         if (startedGame == true & paused == false) {
             movingBarRigidBody.linearVelocityX *= barMoveSpeedMultiplier;
             charactersTransitionSpeed *= charactersTransitionSpeedMultiplier;
+
+            swapped = false;
+
+            if (!onPhone) {
+                numBarsChanged = true;
+                numBarsLostA += 1;
+            } else if (onPhone) {
+                numBarsChanged = true;
+                numBarsLostB += 1;
+            }
 
             if (!cameraShaking) {
                 cameraShaking = true;
@@ -260,21 +317,28 @@ public class PatienceBar : MonoBehaviour
 
     public void SwapDate()
     {
-        if (startedGame == true & paused == false) {
+        if (startedGame == true & paused == false & swapped == false) {
             movingBarRigidBody.linearVelocityX *= -1;
-            onPhone = !onPhone;
 
-            if (onPhone) {
+            if (!onPhone) {
                 charactersMovePoint = new Vector3(-18, 0, 0);
 
                 realDateButtons.SetActive(false);
                 eDateButtons.SetActive(true);
+
+                swapped = true;
+                swapsOffPhoneCounter += 1;
             } else {
                 charactersMovePoint = new Vector3(0, 0, 0);
 
                 eDateButtons.SetActive(false);
                 realDateButtons.SetActive(true);
+
+                swapped = true;
+                swapsToPhoneCounter += 1;
             }
+
+            onPhone = !onPhone;
         }
     }
 }
