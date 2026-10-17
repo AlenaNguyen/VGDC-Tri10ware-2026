@@ -6,7 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/Start Screen.unity
+    guid: ea270200481c0414ebc5c8288138ddcf
+  - enabled: 1
+    path: Assets/Scenes/Patience Bar/PatienceBar.unity
+    guid: c96df21dab5b21e4693c89ff017dd54d
+  - enabled: 1
+    path: Assets/Scenes/Tutorial Screen.unity
+    guid: 296a1a5ad3eafc241af0167926bb5594
+  - enabled: 1
+    path: Assets/Scenes/End Screen.unity
+    guid: d06cad335770a0c44bc218d705c217b6
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

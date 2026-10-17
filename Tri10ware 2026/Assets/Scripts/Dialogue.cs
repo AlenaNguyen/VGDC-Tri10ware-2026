@@ -113,7 +113,7 @@ public class Dialogue
         "Cupcake, you keep things in such good order!",
         "Angel, I'll love you forever!"},
 
-        new string[] {"\"Quickly. What's 5+2-3?\"",
+        new string[] {"\"Quickly. What's 8+5-6?\"",
         "The number between 6 and 8!",
         "The number between 4 and 6!",
         "The number 7!",
