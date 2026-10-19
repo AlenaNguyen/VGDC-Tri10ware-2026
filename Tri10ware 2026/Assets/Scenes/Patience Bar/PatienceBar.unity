@@ -937,7 +937,6 @@ MonoBehaviour:
   barMoveSpeedMultiplier: 1.1
   cam: {fileID: 2146706569}
   cameraShakeDuration: 0.5
-  cameraShakeMultiplier: 1.1
   cameraShakeSize: 20
   movingBar: {fileID: 2055299023}
   patienceBarSprite: {fileID: 1922476014}
@@ -2394,6 +2393,7 @@ MonoBehaviour:
   round: 0
   isDog: 0
   questionDelay: 1
+  otherDate: {fileID: 2138172441}
 --- !u!1 &1081884630
 GameObject:
   m_ObjectHideFlags: 0
@@ -4817,6 +4817,7 @@ MonoBehaviour:
   round: 0
   isDog: 1
   questionDelay: 1
+  otherDate: {fileID: 1036721679}
 --- !u!1 &2146706569
 GameObject:
   m_ObjectHideFlags: 0

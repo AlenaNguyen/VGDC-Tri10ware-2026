@@ -15,7 +15,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial Screen.unity
     guid: 296a1a5ad3eafc241af0167926bb5594
   - enabled: 1
-    path: Assets/Scenes/End Screen.unity
+    path: Assets/Scenes/Winning End Screen.unity
     guid: d06cad335770a0c44bc218d705c217b6
+  - enabled: 1
+    path: Assets/Scenes/Losing End Screen.unity
+    guid: 0793c5f21235b464a80ab9579c56b2cf
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

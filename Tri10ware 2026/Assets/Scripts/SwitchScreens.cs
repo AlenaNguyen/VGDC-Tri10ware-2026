@@ -18,8 +18,12 @@ public class SwitchScreens : MonoBehaviour
         SceneManager.LoadScene("Start Screen");
     }  
 
-    public void EndScreen() {
-        SceneManager.LoadScene("End Screen");
+    public void WinningEndScreen() {
+        SceneManager.LoadScene("Winning End Screen");
+    }   
+
+    public void LosingEndScreen() {
+        SceneManager.LoadScene("Losing End Screen");
     }   
 
     public void TutorialScreen() {

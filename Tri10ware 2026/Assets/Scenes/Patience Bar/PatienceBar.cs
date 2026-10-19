@@ -58,6 +58,8 @@ public class PatienceBar : MonoBehaviour
     private NewMonoBehaviourScript eDateQuestions;
     public GameObject realDate;
     private NewMonoBehaviourScript realDateQuestions;
+
+    SwitchScreens switchScreens = new SwitchScreens();
     public float questionDelayMultiplier;
 
     private bool onPhone;
@@ -144,7 +146,8 @@ public class PatienceBar : MonoBehaviour
             } else if (numBarsLostA == 3) {
                 movingBar.transform.position = startPosMovingBar;
 
-                RestartButton();
+                // RestartButton();
+                switchScreens.LosingEndScreen();
             }
         }
 
@@ -158,7 +161,9 @@ public class PatienceBar : MonoBehaviour
             } else if (numBarsLostB == 3) {
                 movingBar.transform.position = startPosMovingBar;
 
-                RestartButton();
+                // RestartButton();
+                switchScreens.LosingEndScreen();
+
             }
         }
 
@@ -208,7 +213,9 @@ public class PatienceBar : MonoBehaviour
                 if (numBarsLostA == 3 | numBarsLostB == 3) {
                     movingBar.transform.position = startPosMovingBar;
 
-                    RestartButton();
+                    //RestartButton();
+                    switchScreens.LosingEndScreen();
+
                 }
             }
 
@@ -317,14 +324,16 @@ public class PatienceBar : MonoBehaviour
                 numBarsLostA += 1;
 
                 if (numBarsLostA >= 3) {
-                    RestartButton();
+                    //RestartButton();
+                    switchScreens.LosingEndScreen();
                 }
             } else if (onPhone) {
                 numBarsChanged = true;
                 numBarsLostB += 1;
 
                 if (numBarsLostB >= 3) {
-                    RestartButton();
+                    //RestartButton();
+                    switchScreens.LosingEndScreen();
                 }
             }
 
@@ -361,5 +370,10 @@ public class PatienceBar : MonoBehaviour
 
             onPhone = !onPhone;
         }
+    }
+
+    public void OnlyPausePatienceBar()
+    {
+        movingBarRigidBody.linearVelocityX = 0;
     }
 }

@@ -2,7 +2,9 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using NUnit.Framework.Internal;
+using NUnit.Framework;
+using System.Diagnostics;
+using Unity.VisualScripting;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
@@ -15,12 +17,20 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public int round = 0;
     public bool isDog;
     PatienceBar patienceBar;
+    SwitchScreens switchScreens = new SwitchScreens();
     public float questionDelay = 1;
+    bool isDialogueFinished;
+    public GameObject otherDate;
+    private NewMonoBehaviourScript otherDateQuestions;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         patienceBar = GameObject.FindWithTag("PatienceBar").GetComponent<PatienceBar>();
+        otherDateQuestions = otherDate.GetComponent<NewMonoBehaviourScript>();
+
+        isDialogueFinished = false;
 
         // initialize dialogueBank based on the date
         if (isDog)
@@ -36,7 +46,6 @@ public class NewMonoBehaviourScript : MonoBehaviour
             answerTexts[i] = answerButtons[i].GetComponentInChildren<Text>();
         }
         newQuestion();
-
     }
 
     void OnEnable()
@@ -53,6 +62,29 @@ public class NewMonoBehaviourScript : MonoBehaviour
     // Generates a new question with randomized answer choices
     public void newQuestion()
     {
+        // if we're at the end of the dialogue choices
+        if (round == dialogueBank.Length)
+        {
+            isDialogueFinished = true;
+            // if the other date is finished too, end the game :D
+            if (otherDateQuestions.isDialogueFinished)
+            {
+                switchScreens.WinningEndScreen();
+            } 
+            // if not, set the dialogue to the ending dialogue and 
+            // pause the patience bar
+            else
+            {
+                patienceBar.OnlyPausePatienceBar();
+                question.text = "Thanks for answering my questions! Hope we chat again soon!";
+                for (int i = 0; i < 4; i++)
+                {
+                    answerTexts[i].text = ":)";
+                }
+            }
+            return;
+        }
+
         //reset color of buttons
         foreach (Button button in answerButtons)
         {
@@ -80,34 +112,39 @@ public class NewMonoBehaviourScript : MonoBehaviour
             possibleAnswers.RemoveAt(randIndex);
         }
 
-        // if we're at the end of the dialogue choices
-        if (round + 1 == dialogueBank.Length)
-        {
-           // TODO: uhh end the game 
-        } else
-        {
-            round++;
-        }
+        round++;
     }
 
     // called when player clicks a button
     public void OnAnswerSelected(Button answerButton)
     {
-        if (patienceBar.startedGame == true & patienceBar.paused == false) {
-            string answerClicked = answerButton.GetComponentInChildren<Text>().text;
-            //change button color to see if correct or not
-            if (answerClicked.Equals(correctAnswer))
-            {
-                answerButton.GetComponent<Image>().color = Color.green;
-                patienceBar.RightAnswer();
-            } else
-            {
-                answerButton.GetComponent<Image>().color = Color.red;
-                patienceBar.WrongAnswer();
-            }
+        // only continue if we're not finished
+        // if we are finished, just set a random color i guess lol
+        if (isDialogueFinished)
+        {
+            System.Random rand = new System.Random();
+            byte randomRed = (byte) rand.Next(0, 255);
+            byte randomGreen = (byte) rand.Next(0, 255);
+            byte randomBlue = (byte) rand.Next(0, 255);
 
-            // change to a new question after some time
-            Invoke(nameof(newQuestion), questionDelay);
+            answerButton.GetComponent<Image>().color = new Color32(randomRed, randomGreen, randomBlue, 100);
+        } else {
+            if (patienceBar.startedGame == true & patienceBar.paused == false) {
+                string answerClicked = answerButton.GetComponentInChildren<Text>().text;
+                //change button color to see if correct or not
+                if (answerClicked.Equals(correctAnswer))
+                {
+                    answerButton.GetComponent<Image>().color = Color.green;
+                    patienceBar.RightAnswer();
+                } else
+                {
+                    answerButton.GetComponent<Image>().color = Color.red;
+                    patienceBar.WrongAnswer();
+                }
+
+                // change to a new question after some time
+                Invoke(nameof(newQuestion), questionDelay);
+            }
         }
     }
 
