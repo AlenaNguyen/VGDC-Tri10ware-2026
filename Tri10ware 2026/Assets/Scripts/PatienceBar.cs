@@ -386,7 +386,7 @@ public class PatienceBar : MonoBehaviour
             movingBarRigidBody.linearVelocityX *= -1;
 
             if (!onPhone) {
-                charactersMovePoint = new Vector3(-19.2f, 0, 0);
+                charactersMovePoint = new Vector3(0, 10.8f, 0);
 
                 realDate.SetActive(false);
 
