@@ -52,6 +52,7 @@ public class PatienceBar : MonoBehaviour
     public int maxSwapsToPhone;
     private float swapCooldownCounter;
     private bool swapped;
+    private bool swapping;
     public float swapCooldownDuration;
     private int swapsOffPhoneCounter;
     private int swapsToPhoneCounter;
@@ -105,6 +106,7 @@ public class PatienceBar : MonoBehaviour
 
         swapCooldownCounter = 0;
         swapped = false;
+        swapping = false;
         swapsOffPhoneCounter = 0;
         swapsToPhoneCounter = 0;
 
@@ -121,9 +123,20 @@ public class PatienceBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(charactersLayer.transform.position, charactersMovePoint) > 0.01f) {
+        if (Vector3.Distance(charactersLayer.transform.position, charactersMovePoint) > 0.01f & swapping) {
             charactersLayer.transform.localPosition = Vector3.MoveTowards(charactersLayer.transform.localPosition, charactersMovePoint, charactersTransitionSpeed * Time.deltaTime);
         }
+
+        if (Vector3.Distance(charactersLayer.transform.position, charactersMovePoint) < 0.01f & swapping) {
+            swapping = false;
+
+            if (onPhone) {
+                eDate.SetActive(true);
+            } else {
+                realDate.SetActive(true);
+            }
+        }
+
 
         if (cameraShaking) {
             cameraShakeCounter += Time.deltaTime;
@@ -362,17 +375,17 @@ public class PatienceBar : MonoBehaviour
                 charactersMovePoint = new Vector3(-19.2f, 0, 0);
 
                 realDate.SetActive(false);
-                eDate.SetActive(true);
 
                 swapped = true;
+                swapping = true;
                 swapsOffPhoneCounter += 1;
             } else {
                 charactersMovePoint = new Vector3(0, 0, 0);
 
                 eDate.SetActive(false);
-                realDate.SetActive(true);
 
                 swapped = true;
+                swapping = true;
                 swapsToPhoneCounter += 1;
             }
 
