@@ -43,6 +43,8 @@ public class PatienceBar : MonoBehaviour
     public GameObject buttonsLayer;
     private RectTransform buttonsLayerTransform;
     public GameObject charactersLayer;
+    public GameObject charactersLayerE;
+    public GameObject charactersLayerReal;
     private Vector3 charactersMovePoint;
     private float originalCharactersTransitionSpeed;
     public float charactersTransitionSpeed;
@@ -130,11 +132,11 @@ public class PatienceBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(charactersLayer.transform.position, charactersMovePoint) > 0.01f & swapping) {
-            charactersLayer.transform.localPosition = Vector3.MoveTowards(charactersLayer.transform.localPosition, charactersMovePoint, charactersTransitionSpeed * Time.deltaTime);
+        if (Vector3.Distance(charactersLayerE.transform.position, charactersMovePoint) > 0.01f & swapping) {
+            charactersLayerE.transform.localPosition = Vector3.MoveTowards(charactersLayerE.transform.localPosition, charactersMovePoint, charactersTransitionSpeed * Time.deltaTime);
         }
 
-        if (Vector3.Distance(charactersLayer.transform.position, charactersMovePoint) < 0.01f & swapping) {
+        if (Vector3.Distance(charactersLayerE.transform.position, charactersMovePoint) < 0.01f & swapping) {
             swapping = false;
 
             if (onPhone) {
@@ -386,7 +388,7 @@ public class PatienceBar : MonoBehaviour
             movingBarRigidBody.linearVelocityX *= -1;
 
             if (!onPhone) {
-                charactersMovePoint = new Vector3(0, 10.8f, 0);
+                charactersMovePoint = new Vector3(0, 0f, 0);
 
                 realDate.SetActive(false);
 
@@ -394,7 +396,7 @@ public class PatienceBar : MonoBehaviour
                 swapping = true;
                 swapsOffPhoneCounter += 1;
             } else {
-                charactersMovePoint = new Vector3(0, 0, 0);
+                charactersMovePoint = new Vector3(0, -10.8f, 0);
 
                 eDate.SetActive(false);
 
