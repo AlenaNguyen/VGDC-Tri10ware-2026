@@ -88,7 +88,10 @@ public class NewMonoBehaviourScript : MonoBehaviour
         //reset color of buttons
         foreach (Button button in answerButtons)
         {
-            button.GetComponent<Image>().color = Color.white; 
+            Image buttonImage = button.GetComponent<Image>();
+            Color tempColor = buttonImage.color;
+            tempColor.a = 0f;
+            buttonImage.color = tempColor;
         }
 
         // update question + correct answer

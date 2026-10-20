@@ -38,6 +38,8 @@ public class PatienceBar : MonoBehaviour
     public float patienceBarBlockSize;
     public float patienceBarSize;
 
+    public GameObject pauseMenu;
+
     public GameObject buttonsLayer;
     private RectTransform buttonsLayerTransform;
     public GameObject charactersLayer;
@@ -69,6 +71,7 @@ public class PatienceBar : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Time.timeScale = 1f;  
         originalBarMoveSpeed = barMoveSpeed;
 
         cameraShakeCounter = 0;
@@ -85,6 +88,8 @@ public class PatienceBar : MonoBehaviour
 
         patienceBarSpriteRenderer = patienceBarSprite.GetComponent<SpriteRenderer>();
         patienceBarSpriteRenderer.sprite = patienceBar00;
+
+        pauseMenu.SetActive(false);
 
         movingBarRigidBody = movingBar.GetComponent<Rigidbody2D>();
         movingBarRigidBody.linearVelocityX = 0;
@@ -110,6 +115,7 @@ public class PatienceBar : MonoBehaviour
         startedGame = false;
         paused = false;
 
+        StartButton();
     }
 
     // Update is called once per frame
@@ -283,10 +289,12 @@ public class PatienceBar : MonoBehaviour
         if (startedGame == true) {
             if (paused == false) {
                 paused = true;
-                Time.timeScale = 0f;     
+                Time.timeScale = 0f;  
+                pauseMenu.SetActive(true);   
             } else {
                 paused = false;
                 Time.timeScale = 1f;  
+                pauseMenu.SetActive(false);   
             }
         }
     }
@@ -351,7 +359,7 @@ public class PatienceBar : MonoBehaviour
             movingBarRigidBody.linearVelocityX *= -1;
 
             if (!onPhone) {
-                charactersMovePoint = new Vector3(-18, 0, 0);
+                charactersMovePoint = new Vector3(-19.2f, 0, 0);
 
                 realDate.SetActive(false);
                 eDate.SetActive(true);
