@@ -31,6 +31,7 @@ public class SwitchScreens : MonoBehaviour
     }    
 
     public void GameScreen() {
+        Debug.Log("game");
         SceneManager.LoadScene("PatienceBar");
     }    
 }
