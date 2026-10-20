@@ -1,0 +1,481 @@
+fileFormatVersion: 2
+guid: 4e398d3124bddab43b9e16215a945628
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1016334771749297152
+    second: happy_tom_sheet_0
+  - first:
+      213: -4572071200131795199
+    second: happy_tom_sheet_1
+  - first:
+      213: 7562257107338306540
+    second: happy_tom_sheet_2
+  - first:
+      213: -1936050960394164640
+    second: happy_tom_sheet_3
+  - first:
+      213: 6348610151740793814
+    second: happy_tom_sheet_4
+  - first:
+      213: -7975417523869441544
+    second: happy_tom_sheet_5
+  - first:
+      213: 3389157568128900404
+    second: happy_tom_sheet_6
+  - first:
+      213: 3259357531440539260
+    second: happy_tom_sheet_7
+  - first:
+      213: 7392745690638579950
+    second: happy_tom_sheet_8
+  - first:
+      213: -742564905467320147
+    second: happy_tom_sheet_9
+  - first:
+      213: -8661255296208074351
+    second: happy_tom_sheet_10
+  - first:
+      213: -3826313512699178525
+    second: happy_tom_sheet_11
+  - first:
+      213: -8877309819594435044
+    second: happy_tom_sheet_12
+  - first:
+      213: -2492126478129519387
+    second: happy_tom_sheet_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: happy_tom_sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4079
+        width: 1889
+        height: 1379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 004610de8e045e1f0800000000000000
+      internalID: -1016334771749297152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: happy_tom_sheet_1
+      rect:
+        serializedVersion: 2
+        x: 1919
+        y: 4079
+        width: 1890
+        height: 1379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 107b954a77dbc80c0800000000000000
+      internalID: -4572071200131795199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: happy_tom_sheet_2
+      rect:
+        serializedVersion: 2
+        x: 3839
+        y: 4079
+        width: 1890
+        height: 1379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce3a217c5c882f860800000000000000
+      internalID: 7562257107338306540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: happy_tom_sheet_3
+      rect:
+        serializedVersion: 2
+        x: 5759
+        y: 4079
+        width: 1890
+        height: 1379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 066e6aeb8e3c125e0800000000000000
+      internalID: -1936050960394164640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: happy_tom_sheet_4
+      rect:
+        serializedVersion: 2
+        x: 7679
+        y: 4079
+        width: 1890
+        height: 1379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d3e2ffeb4bca1850800000000000000
+      internalID: 6348610151740793814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: happy_tom_sheet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2159
+        width: 1889
+        height: 1379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f126528400a15190800000000000000
+      internalID: -7975417523869441544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: happy_tom_sheet_6
+      rect:
+        serializedVersion: 2
+        x: 1919
+        y: 2159
+        width: 1890
+        height: 1379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43d56280ad4b80f20800000000000000
+      internalID: 3389157568128900404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: happy_tom_sheet_7
+      rect:
+        serializedVersion: 2
+        x: 3839
+        y: 2159
+        width: 1890
+        height: 1379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c76e181f7609b3d20800000000000000
+      internalID: 3259357531440539260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: happy_tom_sheet_8
+      rect:
+        serializedVersion: 2
+        x: 5759
+        y: 2159
+        width: 1890
+        height: 1379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee8ff45890f489660800000000000000
+      internalID: 7392745690638579950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: happy_tom_sheet_9
+      rect:
+        serializedVersion: 2
+        x: 7679
+        y: 2159
+        width: 1890
+        height: 1379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da8e2fa1721e1b5f0800000000000000
+      internalID: -742564905467320147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: happy_tom_sheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 239
+        width: 1889
+        height: 1379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1990c88823a0dc780800000000000000
+      internalID: -8661255296208074351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: happy_tom_sheet_11
+      rect:
+        serializedVersion: 2
+        x: 1919
+        y: 239
+        width: 1890
+        height: 1379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e1d944022436eac0800000000000000
+      internalID: -3826313512699178525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: happy_tom_sheet_12
+      rect:
+        serializedVersion: 2
+        x: 3839
+        y: 239
+        width: 1890
+        height: 1379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c169cf9c0c57dc480800000000000000
+      internalID: -8877309819594435044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: happy_tom_sheet_13
+      rect:
+        serializedVersion: 2
+        x: 5759
+        y: 239
+        width: 1890
+        height: 1379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e4aeb70c203a6dd0800000000000000
+      internalID: -2492126478129519387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      happy_tom_sheet_0: -1016334771749297152
+      happy_tom_sheet_1: -4572071200131795199
+      happy_tom_sheet_10: -8661255296208074351
+      happy_tom_sheet_11: -3826313512699178525
+      happy_tom_sheet_12: -8877309819594435044
+      happy_tom_sheet_13: -2492126478129519387
+      happy_tom_sheet_2: 7562257107338306540
+      happy_tom_sheet_3: -1936050960394164640
+      happy_tom_sheet_4: 6348610151740793814
+      happy_tom_sheet_5: -7975417523869441544
+      happy_tom_sheet_6: 3389157568128900404
+      happy_tom_sheet_7: 3259357531440539260
+      happy_tom_sheet_8: 7392745690638579950
+      happy_tom_sheet_9: -742564905467320147
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

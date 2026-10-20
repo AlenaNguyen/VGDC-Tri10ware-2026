@@ -81,6 +81,12 @@ public class NewMonoBehaviourScript : MonoBehaviour
                 {
                     answerTexts[i].text = ":)";
                 }
+
+                if (isDog) {
+                    patienceBar.realDateAnim.SetBool("isHappy", true);
+                } else {
+                    patienceBar.eDateAnim.SetBool("isHappy", true);
+                }
             }
             return;
         }
@@ -88,10 +94,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
         //reset color of buttons
         foreach (Button button in answerButtons)
         {
-            Image buttonImage = button.GetComponent<Image>();
-            Color tempColor = buttonImage.color;
-            tempColor.a = 0f;
-            buttonImage.color = tempColor;
+            button.GetComponent<Image>().color = Color.white;
         }
 
         // update question + correct answer

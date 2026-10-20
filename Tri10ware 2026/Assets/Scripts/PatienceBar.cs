@@ -58,8 +58,10 @@ public class PatienceBar : MonoBehaviour
     private int swapsToPhoneCounter;
 
     public GameObject eDate;
+    public Animator eDateAnim;
     private NewMonoBehaviourScript eDateQuestions;
     public GameObject realDate;
+    public Animator realDateAnim;
     private NewMonoBehaviourScript realDateQuestions;
 
     SwitchScreens switchScreens = new SwitchScreens();
@@ -110,12 +112,17 @@ public class PatienceBar : MonoBehaviour
         swapsOffPhoneCounter = 0;
         swapsToPhoneCounter = 0;
 
+        eDateAnim = GameObject.FindWithTag("E-Date").GetComponent<Animator>();
         eDateQuestions = eDate.GetComponent<NewMonoBehaviourScript>();
         realDateQuestions = realDate.GetComponent<NewMonoBehaviourScript>();
+        realDateAnim = GameObject.FindWithTag("Real").GetComponent<Animator>();
 
         onPhone = false;
         startedGame = false;
         paused = false;
+
+        eDateAnim.SetBool("isHappy", true);
+        realDateAnim.SetBool("isHappy", true);
 
         StartButton();
     }
@@ -290,6 +297,9 @@ public class PatienceBar : MonoBehaviour
             realDateQuestions.round = 0;
             eDateQuestions.round = 0;
 
+            eDateAnim.SetBool("isHappy", true);
+            realDateAnim.SetBool("isHappy", true);
+
             cameraShaking = false;
             onPhone = false;
             startedGame = false;
@@ -323,8 +333,10 @@ public class PatienceBar : MonoBehaviour
             swapped = false;
 
             if (onPhone) {
+                eDateAnim.SetBool("isHappy", true);
                 swapsToPhoneCounter -= 1;
             } else {
+                realDateAnim.SetBool("isHappy", true);
                 swapsOffPhoneCounter -= 1;
             }
         }
@@ -341,6 +353,7 @@ public class PatienceBar : MonoBehaviour
             swapped = false;
 
             if (!onPhone) {
+                realDateAnim.SetBool("isHappy", false);
                 numBarsChanged = true;
                 numBarsLostA += 1;
 
@@ -349,6 +362,7 @@ public class PatienceBar : MonoBehaviour
                     switchScreens.LosingEndScreen();
                 }
             } else if (onPhone) {
+                eDateAnim.SetBool("isHappy", false);
                 numBarsChanged = true;
                 numBarsLostB += 1;
 
