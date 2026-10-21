@@ -1448,7 +1448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9f0650d77b5b7c4cb958daf7a82016e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  barMoveSpeed: 1
+  barMoveSpeed: 0.75
   barMoveSpeedMultiplier: 1.02
   cam: {fileID: 2146706569}
   cameraShakeDuration: 0.5
